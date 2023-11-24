@@ -65,7 +65,7 @@ job "${nomad_namejob}" {
                         }
                 }
 
-                task "run" {
+                task "esignsante" {
                         driver = "docker"
                         config {
                                 image = "${artifact.image}:${artifact.tag}"
@@ -80,7 +80,7 @@ job "${nomad_namejob}" {
                         template {
 data = <<EOF
 {{ with secret "services-infrastructure/proxy" }}
-JAVA_TOOL_OPTIONS="${user_java_opts} -Dspring.config.location=/var/esignsante/application.properties -Dhttp.proxyHost={{ .Data.data.host }} -Dhttps.proxyHost={{ .Data.data.host }} -Dhttp.proxyPort={{ .Data.data.port }} -Dhttps.proxyPort={{ .Data.data.port }}"
+JAVA_TOOL_OPTIONS="${user_java_opts} -Dspring.config.location=/var/esignsante/application.properties -Dhttp.proxyHost={{ .Data.data.host }} -Dhttps.proxyHost={{ .Data.data.host }} -Dhttp.proxyPort={{ .Data.data.port }} -Dhttps.proxyPort={{ .Data.data.port }} -Dspring-boot.run.jvmArguments=\"-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000\""
 {{end}}
 EOF
                                 destination = "local/file.env"
@@ -166,7 +166,7 @@ EOF
                         mode     = "delay"
                 }
                 meta {
-                        INSTANCE = "$\u007BNOMAD_ALLOC_NAME\u007D"
+                        INSTANCE = "$${NOMAD_ALLOC_NAME}"
                 }
                 template {
                         data = <<EOH
