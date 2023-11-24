@@ -128,6 +128,7 @@ springdoc.swagger-ui.enabled=${swagger_ui_enabled}
 spring.security.user.name=${spring_security_user_name}
 spring.security.user.password=${spring_security_user_password}
 logging.level.org.springframework.web=DEBUG
+debug=true
 EOF
                         destination = "secrets/application.properties"
                         }
