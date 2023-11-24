@@ -32,8 +32,6 @@ job "${nomad_namejob}" {
                 update {
                         max_parallel      = 1
                         min_healthy_time  = "30s"
-                        progress_deadline = "5m"
-                        healthy_deadline  = "2m"
                 }
 
                 scaling {
@@ -143,10 +141,7 @@ EOF
                                 check {
                                         type = "http"
                                         port = "http"
-                                        path = "/${nomad_namespace}/v1/ca"
-                                        header {
-                                                Accept = ["application/json"]
-                                        }
+                                        path = "/${nomad_namespace}/v1/actuator/health"
                                         name = "alive"
                                         interval = "30s"
                                         timeout = "2s"
