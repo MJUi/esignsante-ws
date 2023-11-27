@@ -80,7 +80,7 @@ job "${nomad_namejob}" {
                         template {
 data = <<EOF
 {{ with secret "services-infrastructure/proxy" }}
-JAVA_TOOL_OPTIONS="${user_java_opts} -Dspring.config.location=/var/esignsante/application.properties -Dhttp.proxyHost={{ .Data.data.host }} -Dhttps.proxyHost={{ .Data.data.host }} -Dhttp.proxyPort={{ .Data.data.port }} -Dhttps.proxyPort={{ .Data.data.port }} -Dlogging.level.org.springframework=TRACE "
+JAVA_TOOL_OPTIONS="${user_java_opts} -Dspring.config.location=/var/esignsante/application.properties -Dhttp.proxyHost={{ .Data.data.host }} -Dhttps.proxyHost={{ .Data.data.host }} -Dhttp.proxyPort={{ .Data.data.port }} -Dhttps.proxyPort={{ .Data.data.port }}"
 {{end}}
 EOF
                                 destination = "local/file.env"
