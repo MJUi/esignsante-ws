@@ -29,7 +29,7 @@ public class WebConfig implements WebMvcConfigurer {
      */
     @Override
     public void configureMessageConverters(final List<HttpMessageConverter<?>> converters) {
-    	//converters.add(new StringHttpMessageConverter());
+    	converters.add(new StringHttpMessageConverter());
     	converters.add(new ByteArrayHttpMessageConverter());
     	converters.add(new MappingJackson2HttpMessageConverter());
     }
