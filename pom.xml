@@ -7,7 +7,7 @@
 	<artifactId>esignsante-webservices</artifactId>
 	<packaging>jar</packaging>
 	<name>esignsante-webservices</name>
-	<version>2.7.4-SNAPSHOT</version>
+	<version>2.7.5-SNAPSHOT</version>
 	<properties>
 		<java.version>17</java.version>
 		<esignsante-lib.version>2.5.1</esignsante-lib.version>
@@ -263,12 +263,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
-			<!--<exclusions>
-				<exclusion>
-					<groupId>ch.qos.logback</groupId>
-					<artifactId>logback-classic</artifactId>
-				</exclusion>
-			</exclusions>-->
 		</dependency>
 		<dependency>
 			<groupId>io.micrometer</groupId>

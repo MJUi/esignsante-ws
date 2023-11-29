@@ -18,7 +18,7 @@
     </root>
 
     <!-- LOG "com.baeldung*" at TRACE level -->
-    <logger name="logging.level.org.springframework" level="trace" additivity="false">
+    <logger name="com.baeldung" level="trace" additivity="false">
       <!--   <appender-ref ref="RollingFile" /> -->
         <appender-ref ref="Console" />
     </logger>

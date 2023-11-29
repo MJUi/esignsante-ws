@@ -32,6 +32,9 @@ job "${nomad_namejob}" {
                 update {
                         max_parallel      = 1
                         min_healthy_time  = "30s"
+                        progress_deadline = "5m"
+                        healthy_deadline  = "2m"
+                        auto_revert       = true
                 }
 
                 scaling {
@@ -127,8 +130,6 @@ springdoc.api-docs.path=/api-docs
 springdoc.swagger-ui.enabled=${swagger_ui_enabled}
 spring.security.user.name=${spring_security_user_name}
 spring.security.user.password=${spring_security_user_password}
-logging.level.org.springframework.web=DEBUG
-debug=true
 EOF
                         destination = "secrets/application.properties"
                         }
